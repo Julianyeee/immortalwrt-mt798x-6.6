@@ -644,6 +644,20 @@ define Device/cmcc_rax3000m_common
 	pad-rootfs | append-metadata
 endef
 
+define Device/cmcc_rax3000m-256m
+  DEVICE_VENDOR := CMCC
+  DEVICE_MODEL := RAX3000M 256M NAND
+  DEVICE_VARIANT := (H layout)
+  DEVICE_DTS := mt7981b-cmcc-rax3000m-256m
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-usb3 f2fsck mkf2fs
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  IMAGE_SIZE := 240128k
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += cmcc_rax3000m-256m
+
 define Device/cmcc_rax3000m-emmc-mtk
   DEVICE_VENDOR := CMCC
   DEVICE_MODEL := RAX3000M EMMC
