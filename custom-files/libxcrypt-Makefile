@@ -44,7 +44,7 @@ CONFIGURE_ARGS += \
 	--disable-obsolete-api \
 	--enable-hashes=solaris \
 	--with-pic
-TARGET_CFLAGS += -Wno-error=format-nonliteral
+#TARGET_CFLAGS += -Wno-error=format-nonliteral
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/*.h $(1)/usr/include/
