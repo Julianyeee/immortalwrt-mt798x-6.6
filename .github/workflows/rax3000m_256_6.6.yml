@@ -21,9 +21,9 @@ env:
   REPO_URL: https://github.com/Julianyeee/immortalwrt-mt798x-6.6.git
   REPO_BRANCH: openwrt-24.10-6.6
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
+  CONFIG_FILE: rax3000m_256m_6.6_260114.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P3_SH: diy-part2.sh
+  DIY_P2_SH: diy-part2.sh
   TZ: Asia/Shanghai
   DEVICE: rax3000m_256m
   UPLOAD_OUTPUT: true
@@ -105,9 +105,9 @@ jobs:
       run: |
         [ -e repo/files ] && mv repo/files openwrt/files
         [ -e repo/$CONFIG_FILE ] && mv repo/$CONFIG_FILE openwrt/.config
-        [ -e repo/$DIY_P3_SH ] && chmod +x repo/$DIY_P3_SH
+        [ -e repo/$DIY_P2_SH ] && chmod +x repo/$DIY_P2_SH
         cd openwrt
-        $GITHUB_WORKSPACE/repo/$DIY_P3_SH
+        $GITHUB_WORKSPACE/repo/$DIY_P2_SH
 
     - name: Auto-Detect & Download Mihomo (arm64) with Validation
       run: |
