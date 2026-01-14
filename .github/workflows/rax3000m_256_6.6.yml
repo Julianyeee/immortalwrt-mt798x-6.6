@@ -244,7 +244,8 @@ jobs:
     - name: 编译固件
       run: |
         cd openwrt
-        make -j$(nproc) V=sc
+        #make -j$(nproc) V=sc
+        make -j1
         echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
     - name: 上传输出文件
