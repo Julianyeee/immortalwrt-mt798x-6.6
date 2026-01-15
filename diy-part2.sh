@@ -14,6 +14,12 @@
 # Modify default IP
 sed -i 's/192.168.6.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
+# 修复 libxcrypt 在 GCC 13 + musl fortify 下的 -Werror=format-nonliteral 问题
+if [ -f "feeds/packages/libs/libxcrypt/Makefile" ]; then
+    sed -i '/^include/i TARGET_CFLAGS += -Wno-format-nonliteral' feeds/packages/libs/libxcrypt/Makefile
+    echo "patched feeds/packages/libs/libxcrypt/Makefile"
+fi
+
 # Modify hostname
 #sed -i 's/ImmortalWrt/rax3000m_256m/g' package/base-files/files/bin/config_generate
 
